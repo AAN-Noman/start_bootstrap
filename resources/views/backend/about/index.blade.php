@@ -1,5 +1,5 @@
 @extends('layouts.backendapp')
-@section('title', 'logo-')
+@section('title', 'about')
 @section('content')
 <section>
     <div class="container">
@@ -7,35 +7,27 @@
             <div class="col-md-5 ">
                 <div class="x_panel">
                     <div class="x_title">
-                        <h2>add LoGo</h2>
+                        <h2>About</h2>
                         <div class="clearfix"></div>
                     </div>
                     <div class="x_content">
                         <br />
-                        <form action="{{ route('backend.logo.store')}}" method="POST" enctype="multipart/form-data"
+                        <form action="{{ route('backend.about.store')}}" method="POST"
                             class="form-horizontal form-label-left">
                             @csrf
                             <div class="form-group row ">
-                                <label class="control-label col-md-3 col-sm-3 ">Logo Title</label>
+                                <label class="control-label col-md-3 col-sm-3 ">Title</label>
                                 <div class="col-md-9 col-sm-9 ">
-                                    <input type="text" class="form-control" placeholder="Logo Title"
+                                    <input type="text" class="form-control" placeholder="Title"
                                         name="title">
                                 </div>
                             </div>
                             <div class="form-group row">
-                                <label class="control-label col-md-3 col-sm-3 ">Logo Description<span
+                                <label class="control-label col-md-3 col-sm-3 ">Description<span
                                         class="required"></span>
                                 </label>
                                 <div class="col-md-9 col-sm-9 ">
-                                    <textarea class="form-control" rows="3" placeholder="Logo Description" name="description"></textarea>
-                                </div>
-                            </div>
-                            <div class="form-group row">
-                                <label class="control-label col-md-3 col-sm-3 ">Logo Image<span
-                                        class="required"></span>
-                                </label>
-                                <div class="col-md-9 col-sm-9 ">
-                                    <input type='file' class="form-control" name="photo">
+                                    <textarea class="form-control" rows="3" placeholder="Description" name="description"></textarea>
                                 </div>
                             </div>
                                 <div class="ln_solid"></div>
@@ -52,7 +44,7 @@
                 <div class="col-md-7">
                     <div class="x_panel">
                         <div class="x_title">
-                            <h2>All LoGo</h2>
+                            <h2>About</h2>
                             <div class="clearfix"></div>
                         </div>
                         <div class="table-responsive">
@@ -60,7 +52,6 @@
                                 <thead>
                                     <tr class="headings">
                                         <th class='colume-title'>Id</th>
-                                        <th class='colume-title'>Image</th>
                                         <th class='colume-title'>Title</th>
                                         <th class='colume-title'>Description</th>
                                         <th class='colume-title'>Status</th>
@@ -71,16 +62,12 @@
                                     @forelse ($datas as $data)
                                         <tr class="even pointer">
                                             <td>{{ $data->id }}</td>
-                                            <td>
-                                                <img width="100" src="{{ asset('storage/logo/' . $data->photo) }}"
-                                                    alt="">
-                                            </td>
                                             <td>{{ $data->title }}</td>
                                             <td>{{ Str::limit($data->description, 25, '...') }}</td>
                                             <td>{{ $data->status == 1 ? 'Active' : 'Deactive' }}</td>
                                             <td class="last">
-                                                <a href="{{ route('backend.logo.show', $data->id) }}" class="btn btn-primary btn-sm">View</a>
-                                                <form class='d-inline' action="{{ route('backend.logo.destroy', $data->id) }}"
+                                                <a href="{{ route('backend.about.edit', $data->id) }}" class="btn btn-primary btn-sm">Edit</a>
+                                                <form class='d-inline' action="{{ route('backend.about.destroy', $data->id) }}"
                                                     method='POST'>
                                                     @csrf
                                                     @method("DELETE")

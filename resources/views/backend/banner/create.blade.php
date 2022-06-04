@@ -29,7 +29,7 @@
                                         class="required"></span>
                                 </label>
                                 <div class="col-md-9 col-sm-9 ">
-                                    <textarea class="form-control" rows="3" placeholder="Banner Description" name="description"></textarea>
+                                    <textarea class="form-control summernote" rows="3" placeholder="Banner Description" name="description"></textarea>
                                 </div>
                             </div>
                             <div class="form-group row">
@@ -56,3 +56,34 @@
 </section>
 
 @endsection
+
+
+@section('backend_css')
+    <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.css" rel="stylesheet">
+@endsection
+
+@section('backend_js')
+    <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.js"></script>
+
+    <script>
+        $(document).ready(function() {
+
+            $('.summernote').summernote({
+                placeholder: 'Hello stand alone ui',
+                tabsize: 2,
+                height: 120,
+                toolbar: [
+                    ['style', ['style']],
+                    ['font', ['bold', 'underline', 'clear']],
+                    ['color', ['color']],
+                    ['para', ['ul', 'ol', 'paragraph']],
+                    ['table', ['table']],
+                    ['insert', ['link', 'picture', 'video']],
+                    ['view', ['fullscreen', 'codeview', 'help']]
+                ]
+            });
+        });
+    </script>
+@endsection
+
+

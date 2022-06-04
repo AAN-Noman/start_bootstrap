@@ -1,18 +1,20 @@
-@extends("layouts.backendapp")
-@section('title', 'add services')
+@extends('layouts.backendapp')
+@section('title', 'Create Portfolio | ')
+
 @section('content')
+
 <section>
     <div class="container">
         <div class='row'>
-            <div class="col-md-12 ">
+            <div class="col-md-12">
                 <div class="x_panel">
                     <div class="x_title">
-                        <h2><a href="{{ route('backend.services.index') }}" class="btn btn-primary btn-sm">All Services</a></h2>
+                        <h2>Add Portfolio <a href="{{ route('backend.portfolio.index') }}" class="btn btn-primary btn-sm">All Portfolio</a></h2>
                         <div class="clearfix"></div>
                     </div>
                     <div class="x_content">
                         <br />
-                        <form action="{{ route('backend.services.store')}}" method="POST"
+                        <form action="{{ route('backend.portfolio.store')}}" method="POST" enctype="multipart/form-data"
                             class="form-horizontal form-label-left">
                             @csrf
                             <div class="form-group row ">
@@ -23,6 +25,15 @@
                                 </div>
                             </div>
                             <div class="form-group row">
+                                <label class="control-label col-md-3 col-sm-3 ">Short Description<span
+                                        class="required"></span>
+                                </label>
+                                <div class="col-md-9 col-sm-9 ">
+                                    <textarea class="form-control summernote" rows="3" placeholder="Short Description" name="shortDescription"></textarea>
+                                </div>
+                            </div>
+                            </div>
+                            <div class="form-group row">
                                 <label class="control-label col-md-3 col-sm-3 ">Description<span
                                         class="required"></span>
                                 </label>
@@ -30,6 +41,32 @@
                                     <textarea class="form-control summernote" rows="3" placeholder="Description" name="description"></textarea>
                                 </div>
                             </div>
+
+                            <div class="form-group row ">
+                                <label class="control-label col-md-3 col-sm-3 ">Client</label>
+                                <div class="col-md-9 col-sm-9 ">
+                                    <input type="text" class="form-control" placeholder="client"
+                                        name="client">
+                                </div>
+                            </div>
+
+                            <div class="form-group row ">
+                                <label class="control-label col-md-3 col-sm-3 ">Category</label>
+                                <div class="col-md-9 col-sm-9 ">
+                                    <input type="text" class="form-control" placeholder="category"
+                                        name="category">
+                                </div>
+                            </div>
+
+                            <div class="form-group row">
+                                <label class="control-label col-md-3 col-sm-3 ">Image<span
+                                        class="required"></span>
+                                </label>
+                                <div class="col-md-9 col-sm-9 ">
+                                    <input type='file' class="form-control" name="photo">
+                                </div>
+                            </div>
+
                                 <div class="ln_solid"></div>
                                 <div class="form-group">
                                     <div class="col-md-9 col-sm-9  offset-md-3">
@@ -44,6 +81,7 @@
         </div>
     </div>
 </section>
+
 @endsection
 
 
@@ -58,7 +96,6 @@
         $(document).ready(function() {
 
             $('.summernote').summernote({
-                placeholder: 'Hello stand alone ui',
                 tabsize: 2,
                 height: 120,
                 toolbar: [
@@ -67,12 +104,11 @@
                     ['color', ['color']],
                     ['para', ['ul', 'ol', 'paragraph']],
                     ['table', ['table']],
-                    ['insert', ['link', 'picture', 'video']],
+                    ['insert', ['link']],
                     ['view', ['fullscreen', 'codeview', 'help']]
                 ]
             });
         });
     </script>
 @endsection
-
 

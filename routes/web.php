@@ -1,10 +1,12 @@
 <?php
 
+use App\Http\Controllers\Backend\AboutController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Backend\LogoController;
 use App\Http\Controllers\Backend\BannerController;
 use App\Http\Controllers\Backend\BackendController;
+use App\Http\Controllers\Backend\PortfolioController;
 use App\Http\Controllers\Backend\ServicesController;
 use App\Http\Controllers\Frontend\FrontendController;
 
@@ -30,4 +32,6 @@ Route::name("backend.")->group(function(){
     Route::resource('/banner', BannerController::class)->except(["show"]);
     Route::resource('/services', ServicesController::class)->except(["show"]);
     Route::resource('/logo', LogoController::class);
+    Route::resource('/portfolio', PortfolioController::class);
+    Route::resource('/about', AboutController::class);
 });

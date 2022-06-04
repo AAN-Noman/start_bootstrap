@@ -7,6 +7,8 @@
 
     <title>@yield('title'){{ config('app.name', 'start_bootstrap') }}</title>
 
+    @yield('backend_css')
+
     <!-- Custom fonts for this template-->
     <link href="{{ asset('backend/css/all.min.css') }}" rel="stylesheet" type="text/css">
 
@@ -67,6 +69,15 @@
                     <div class="bg-white py-2 collapse-inner rounded">
                         <h6 class="collapse-header">Logo:</h6>
                         <a class="collapse-item" href="{{ route("backend.logo.index") }}">All Logo</a>
+                    </div>
+                    <div class="bg-white py-2 collapse-inner rounded">
+                        <h6 class="collapse-header">PORTFOLIO:</h6>
+                        <a class="collapse-item" href="{{ route("backend.portfolio.create") }}">add Portfolio</a>
+                        <a class="collapse-item" href="{{ route("backend.portfolio.index") }}">All Portfolio</a>
+                    </div>
+                    <div class="bg-white py-2 collapse-inner rounded">
+                        <h6 class="collapse-header">ABOUT:</h6>
+                        <a class="collapse-item" href="{{ route("backend.about.index") }}">About</a>
                     </div>
                 </div>
             </li>

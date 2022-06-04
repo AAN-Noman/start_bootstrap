@@ -1,5 +1,5 @@
 @extends('layouts.backendapp')
-@section('title', 'All Banner | ')
+@section('title', 'All Portfolio | ')
 
 @section('content')
     <div class="container">
@@ -7,7 +7,7 @@
             <div class="col-md-12 col-sm-12">
                 <div class="x_panel">
                     <div class="x_title">
-                        <h2>All Banner <a href="{{ route('backend.banner.create') }}" class='btn btn-primary btn-sm'>Add Banner</a> </h2>
+                        <h2>All Portfolio <a href="{{ route('backend.portfolio.create') }}" class='btn btn-primary btn-sm'>Add Portfolio</a> </h2>
                         <div class="clearfix"></div>
                     </div>
                     <div class="table-responsive">
@@ -17,7 +17,10 @@
                                     <th class='colume-title'>Id</th>
                                     <th class='colume-title'>Image</th>
                                     <th class='colume-title'>Title</th>
+                                    <th class='colume-title'>Short Description</th>
                                     <th class='colume-title'>Description</th>
+                                    <th class='colume-title'>Client</th>
+                                    <th class='colume-title'>Category</th>
                                     <th class='colume-title'>Status</th>
                                     <th class='colume-title'>Action</th>
                                 </tr>
@@ -27,15 +30,18 @@
                                     <tr class="even pointer">
                                         <td>{{ $data->id }}</td>
                                         <td>
-                                            <img width="100" src="{{ asset('storage/banner/' . $data->photo) }}"
+                                            <img width="100" src="{{ asset('storage/portfolio/' . $data->photo) }}"
                                                 alt="">
                                         </td>
                                         <td>{{ $data->title }}</td>
+                                        <td>{{ Str::limit($data->shortDescription, 25, '...') }}</td>
                                         <td>{{ Str::limit($data->description, 25, '...') }}</td>
+                                        <td>{{ $data->client }}</td>
+                                        <td>{{ $data->category }}</td>
                                         <td>{{ $data->status == 1 ? 'Active' : 'Deactive' }}</td>
                                         <td class="last">
-                                            <a href="{{ route('backend.banner.edit', $data->id) }}" class="btn btn-primary btn-sm">View/Edit</a>
-                                            <form class='d-inline' action="{{ route('backend.banner.destroy', $data->id) }}"
+                                            <a href="{{ route('backend.portfolio.edit', $data->id) }}" class="btn btn-primary btn-sm">View/Edit</a>
+                                            <form class='d-inline' action="{{ route('backend.portfolio.destroy', $data->id) }}"
                                                 method='POST'>
                                                 @csrf
                                                 @method("DELETE")
