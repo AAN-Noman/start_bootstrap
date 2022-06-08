@@ -79,6 +79,22 @@
                         <h6 class="collapse-header">ABOUT:</h6>
                         <a class="collapse-item" href="{{ route("backend.about.index") }}">About</a>
                     </div>
+
+                    <div class="bg-white py-2 collapse-inner rounded">
+                        <h6 class="collapse-header">Company Story:</h6>
+                        <a class="collapse-item" href="{{ route("backend.story.create") }}">Add Story</a>
+                        <a class="collapse-item" href="{{ route("backend.story.index") }}">All Story</a>
+                    </div>
+
+                    <div class="bg-white py-2 collapse-inner rounded">
+                        <h6 class="collapse-header">Team:</h6>
+                        <a class="collapse-item" href="{{ route("backend.team.index") }}">All Team</a>
+                    </div>
+
+                    <div class="bg-white py-2 collapse-inner rounded">
+                        <h6 class="collapse-header">Team Member:</h6>
+                        <a class="collapse-item" href="{{ route("backend.teamMember.index") }}">Team Member</a>
+                    </div>
                 </div>
             </li>
 
