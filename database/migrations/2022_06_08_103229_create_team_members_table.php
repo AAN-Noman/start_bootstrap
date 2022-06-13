@@ -18,6 +18,9 @@ return new class extends Migration
             $table->string('name');
             $table->string('proportion');
             $table->text('photo');
+            $table->text('twitter')->nullable();
+            $table->text('facebook')->nullable();
+            $table->text('linkedin')->nullable();
             $table->softDeletes();
             $table->timestamps();
         });

@@ -12,6 +12,8 @@ use App\Http\Controllers\Backend\ServicesController;
 use App\Http\Controllers\Backend\PortfolioController;
 use App\Http\Controllers\Frontend\FrontendController;
 use App\Http\Controllers\Backend\TeamMemberController;
+use App\Http\Controllers\Frontend\ContactController;
+use App\Models\Contact;
 
 /*
 |--------------------------------------------------------------------------
@@ -26,6 +28,7 @@ use App\Http\Controllers\Backend\TeamMemberController;
 
 Route::name("frontend.")->group(function(){
     Route::get('/', [FrontendController::class, 'index'])->name('home');
+    Route::resource('/contact', ContactController::class)->except(["show"]);
 });
 
 Auth::routes();

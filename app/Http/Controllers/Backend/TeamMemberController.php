@@ -41,7 +41,7 @@ class TeamMemberController extends Controller
         $this->validate($request,[
             'name' => 'required',
             'proportion' => 'required',
-            "photo" => "required|mimes:png,jpg,gif,jpeg,webp|max:1024"
+            "photo" => "required|mimes:png,jpg,gif,jpeg,webp|max:1024",
         ]);
         $photo = $request->file('photo');
         if(!empty('photo')){
@@ -52,6 +52,9 @@ class TeamMemberController extends Controller
                 $insert->name = $request->name;
                 $insert->proportion = $request->proportion;
                 $insert->photo = $photo_name;
+                $insert->twitter = $request->twitter;
+                $insert->facebook = $request->facebook;
+                $insert->linkedin = $request->linkedin;
                 $insert->save();
                 return back()->with('success', 'Data insart successfully!!');
             }
@@ -98,6 +101,9 @@ class TeamMemberController extends Controller
         $teamMember->name = $request->name;
         $teamMember->proportion = $request->proportion;
         $teamMember->photo = $photo_name;
+        $teamMember->twitter = $request->twitter;
+        $teamMember->facebook = $request->facebook;
+        $teamMember->linkedin = $request->linkedin;
         $teamMember->save();
         return redirect(route('backend.teamMember.index'))->with("success", "Update Successfull!");
     }

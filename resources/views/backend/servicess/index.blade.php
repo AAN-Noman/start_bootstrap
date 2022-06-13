@@ -29,8 +29,8 @@
                                         <td>{{ Str::limit($data->description, 25, '...') }}</td>
                                         <td>{{ $data->status == 1 ? 'Active' : 'Deactive' }}</td>
                                         <td class="last">
-                                            <a href="{{ route('backend.services.edit', $data->id) }}" class="btn btn-primary btn-sm">View/Edit</a>
-                                            <form class='d-inline' action="{{ route('backend.services.destroy', $data->id) }}"
+                                            <a href="#" class="btn btn-primary btn-sm">View/Edit</a>
+                                            <form class='d-inline' action="#"
                                                 method='POST'>
                                                 @csrf
                                                 @method("DELETE")

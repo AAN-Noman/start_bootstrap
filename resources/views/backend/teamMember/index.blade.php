@@ -29,6 +29,27 @@
                                         name="proportion">
                                 </div>
                             </div>
+                            <div class="form-group row ">
+                                <label class="control-label col-md-3 col-sm-3 ">Towiter:</label>
+                                <div class="col-md-9 col-sm-9 ">
+                                    <input type="text" class="form-control" placeholder="towiter"
+                                        name="towiter">
+                                </div>
+                            </div>
+                            <div class="form-group row ">
+                                <label class="control-label col-md-3 col-sm-3 ">Facebook:</label>
+                                <div class="col-md-9 col-sm-9 ">
+                                    <input type="text" class="form-control" placeholder="facebook"
+                                        name="facebook">
+                                </div>
+                            </div>
+                            <div class="form-group row ">
+                                <label class="control-label col-md-3 col-sm-3 ">Linkedin:</label>
+                                <div class="col-md-9 col-sm-9 ">
+                                    <input type="text" class="form-control" placeholder="Linkedin"
+                                        name="linkedin">
+                                </div>
+                            </div>
                             <div class="form-group row">
                                 <label class="control-label col-md-3 col-sm-3 ">Image<span
                                         class="required"></span>
@@ -72,7 +93,7 @@
                                             <td>{{ $data->id }}</td>
                                             <td>
                                                 <img width="100" src="{{ asset('storage/teamMember/' . $data->photo) }}"
-                                                    alt="">
+                                                    alt="{{ $data->name }}">
                                             </td>
                                             <td>{{ $data->name }}</td>
                                             <td>{{ $data->proportion }}</td>

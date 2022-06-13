@@ -34,6 +34,28 @@
                                             value="{{ $teamMember->proportion }}">
                                     </div>
                                 </div>
+                                <div class="form-group row ">
+                                    <label class="control-label col-md-3 col-sm-3 ">Twitter:</label>
+                                    <div class="col-md-9 col-sm-9 ">
+                                        <input type="text" class="form-control" placeholder="twitter" name="twitter"
+                                            value="{{ $teamMember->twitter }}">
+                                    </div>
+                                </div>
+
+                                <div class="form-group row ">
+                                    <label class="control-label col-md-3 col-sm-3 ">Facebook:</label>
+                                    <div class="col-md-9 col-sm-9 ">
+                                        <input type="text" class="form-control" placeholder="facebook" name="facebook"
+                                            value="{{ $teamMember->facebook }}">
+                                    </div>
+                                </div>
+                                <div class="form-group row ">
+                                    <label class="control-label col-md-3 col-sm-3 ">Linkedin:</label>
+                                    <div class="col-md-9 col-sm-9 ">
+                                        <input type="text" class="form-control" placeholder="linkedin" name="linkedin"
+                                            value="{{ $teamMember->linkedin }}">
+                                    </div>
+                                </div>
 
                                 <div class="form-group row">
                                     <label class="control-label col-md-3 col-sm-3 ">Image:<span
