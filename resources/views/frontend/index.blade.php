@@ -97,22 +97,25 @@
 
             </div>
             <ul class="timeline">
-            @forelse ($storys as $story)
-                <li class="{{ $story->id == [5 and 8] ? '' : 'timeline-inverted' }}">
-                    <div class="timeline-image"><img class="rounded-circle img-fluid"
-                            src="{{ asset('storage/story/' . $story->photo) }}" alt="{{ $story->title }}" /></div>
-                    <div class="timeline-panel">
-                        <div class="timeline-heading">
-                            <h4>{{ $story->date }}</h4>
-                            <h4 class="subheading">{{ $story->title }}</h4>
+
+                @if ($storys->count())
+                    @forelse ($storys as $story)
+                    <li @if ($loop->odd) class="timeline-inverted" @endif>
+                        <div class="timeline-image"><img class="rounded-circle img-fluid"
+                                src="{{ asset('storage/story/' . $story->photo) }}" alt="{{ $story->title }}" /></div>
+                        <div class="timeline-panel">
+                            <div class="timeline-heading">
+                                <h4>{{ $story->date }}</h4>
+                                <h4 class="subheading">{{ $story->title }}</h4>
+                            </div>
+                            <div class="timeline-body">
+                                <p class="text-muted">{{ $story->description }}</p>
+                            </div>
                         </div>
-                        <div class="timeline-body">
-                            <p class="text-muted">{{ $story->description }}</p>
-                        </div>
-                    </div>
-                </li>
-            @empty
-            @endforelse
+                    </li>
+                    @empty
+                    @endforelse
+                @endif
 
                 <li class="timeline-inverted">
                     <div class="timeline-image">
